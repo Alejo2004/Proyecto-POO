@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectoprogramacion;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sidonia Morales
@@ -13,8 +15,17 @@ public class TablaClasificacion extends javax.swing.JFrame {
     /**
      * Creates new form TablaClasificacion
      */
+    DefaultTableModel modelo;
     public TablaClasificacion() {
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Equipo");
+        modelo.addColumn("PJ");
+        modelo.addColumn("GF");
+        modelo.addColumn("GR");
+        modelo.addColumn("GD");
+        modelo.addColumn("PUNTOS");
+        this.tabla2.setModel(modelo);
     }
     
     
@@ -108,6 +119,26 @@ public class TablaClasificacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void actualizarTabla(DefaultTableModel datos) {
+        // Eliminar las filas existentes
+        while (modelo.getRowCount() > 0) {
+        modelo.removeRow(0);
+        }
+
+        // Copiar los datos del modelo pasado al modelo de la tabla de clasificación
+        for (int i = 0; i < datos.getRowCount(); i++) {
+            String[] fila = new String[6];  // 6 columnas en la tabla de clasificación
+            fila[0] = datos.getValueAt(i, 0).toString();  // Equipo
+            fila[1] = "0";  // PJ
+            fila[2] = "0";  // GF
+            fila[3] = "0";  // GR
+            fila[4] = "0";  // GD
+            fila[5] = "0";  // PUNTOS
+        
+            modelo.addRow(fila);
+        }
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);

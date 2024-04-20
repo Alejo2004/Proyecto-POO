@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistroEquipos extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form RegistroEquipos
      */
@@ -208,6 +209,7 @@ public class RegistroEquipos extends javax.swing.JFrame {
 
     private void bttablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttablaActionPerformed
         TablaClasificacion tc = new TablaClasificacion();
+        tc.actualizarTabla(modelo);  // Actualizar la tabla de clasificación con los datos ingresados
         tc.setVisible(true);
     }//GEN-LAST:event_bttablaActionPerformed
 
