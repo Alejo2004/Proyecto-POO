@@ -187,7 +187,6 @@ public class RegistroEquipos extends javax.swing.JFrame {
     }//GEN-LAST:event_btinsertarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        // TODO add your handling code here:
         int seleccion = tabla.getSelectedRow();
         txtequipo.setText(tabla.getValueAt(seleccion, 0).toString());
         filas = seleccion;
